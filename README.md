@@ -1,0 +1,1 @@
+# Smart-Event-and-Club-Management-Platform
