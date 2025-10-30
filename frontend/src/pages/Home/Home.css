@@ -1,13 +1,49 @@
-h1{
-    text-align: center;
+.home-container {
+  text-align: center;
+  margin-top: 4rem;
+  font-family: "Poppins", sans-serif;
+  color: #222;
 }
 
-p{
-    font-size: 20px;
-    color: #212121;
-    font-weight: 500;
+.home-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #007bff;
 }
 
-span{
-    color: #ff2121;
+.home-subtitle {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.home-button-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.home-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-weight: 500;
+}
+
+.scanner-btn {
+  background-color: #28a745;
+}
+
+.generator-btn {
+  background-color: #007bff;
+}
+
+.home-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }

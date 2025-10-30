@@ -1,0 +1,37 @@
+.scanner-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.scanner-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.camera-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.result-box {
+  margin-top: 1.5rem;
+}
+
+.data-text {
+  font-weight: bold;
+  color: #333;
+  word-break: break-word;
+}
+
+.status-text {
+  font-size: 1.1rem;
+  color: green;
+  margin-top: 0.5rem;
+}
+
+.error-text {
+  color: red;
+  font-weight: 500;
+}

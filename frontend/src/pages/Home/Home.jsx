@@ -1,13 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import QRDisplay from "./qr_component/qr";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const goToQRScanner = () => navigate("/qr_scanner");
+  const goToQRGenerator = () => navigate("/qr_generator");
+
   return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <h1>Hello World</h1>
-      <p>This is your Flask + React QR code generator project 🚀</p>
-      <QRDisplay />
+    <div className="home-container">
+      <h1 className="home-title">Welcome to Smart QR System</h1>
+      <p className="home-subtitle">
+        A modern <strong>Flask + React</strong> project for generating and scanning QR codes 🚀
+      </p>
+
+      <div className="home-button-container">
+        <button className="home-btn scanner-btn" onClick={goToQRScanner}>
+          🔍 Go to QR Scanner
+        </button>
+
+        <button className="home-btn generator-btn" onClick={goToQRGenerator}>
+          ⚙️ Go to QR Generator
+        </button>
+      </div>
     </div>
   );
 };
