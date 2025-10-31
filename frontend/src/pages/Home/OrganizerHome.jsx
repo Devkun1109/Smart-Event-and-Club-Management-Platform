@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const OrganizerHome = () => {
   const navigate = useNavigate();
-
   const goToCreateEvent = () => navigate("/create_event");
   const goToQRScanner = () => navigate("/qr_scanner");
   const goToViewStudents = () => navigate("/view_students");
@@ -27,5 +26,4 @@ const OrganizerHome = () => {
     </div>
   );
 };
-
 export default OrganizerHome;

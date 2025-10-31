@@ -5,6 +5,7 @@ from models import db
 from auth import auth_bp
 from qr import generate_qr_buffer
 from qr_scan import scan_qr_from_image
+from club import club_bp
 import qrcode
 
 app = Flask(__name__)
@@ -17,7 +18,7 @@ db.init_app(app)
 
 # ---------------- BLUEPRINTS ----------------
 app.register_blueprint(auth_bp, url_prefix="/auth")
-
+app.register_blueprint(club_bp, url_prefix="/clubs")
 # ---------------- DATABASE INITIALIZATION ----------------
 # Flask 3.x removed `before_first_request`, so we initialize manually
 with app.app_context():
