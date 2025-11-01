@@ -1,29 +1,53 @@
-import React from "react";
+// src/components/home/Home.jsx
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import StudentHome from "./StudentHome";
+import OrganizerHome from "./OrganizerHome";
+import AdminHome from "./AdminHome";
 import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [userRole, setUserRole] = useState(null);
+  const [userEmail, setUserEmail] = useState("");
 
-  const goToQRScanner = () => navigate("/qr_scanner");
-  const goToQRGenerator = () => navigate("/qr_generator");
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      const parsedUser = JSON.parse(userData);
+      setUserRole(parsedUser.role);
+      setUserEmail(parsedUser.email);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
+
+  const renderRolePage = () => {
+    switch (userRole) {
+      case "student":
+        return <StudentHome />;
+      case "organizer":
+        return <OrganizerHome />;
+      case "admin":
+        return <AdminHome />;
+      default:
+        return <p>Please log in to continue.</p>;
+    }
+  };
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Welcome to Smart QR System</h1>
-      <p className="home-subtitle">
-        A modern <strong>Flask + React</strong> project for generating and scanning QR codes 🚀
-      </p>
+      <h1 className="home-title">Welcome to Smart Event Platform</h1>
+      {userEmail && <p className="home-user">Logged in as: {userEmail}</p>}
 
-      <div className="home-button-container">
-        <button className="home-btn scanner-btn" onClick={goToQRScanner}>
-          🔍 Go to QR Scanner
-        </button>
+      <div className="home-content">{renderRolePage()}</div>
 
-        <button className="home-btn generator-btn" onClick={goToQRGenerator}>
-          ⚙️ Go to QR Generator
-        </button>
-      </div>
+      <button className="logout-btn" onClick={handleLogout}>
+        🚪 Logout
+      </button>
     </div>
   );
 };
